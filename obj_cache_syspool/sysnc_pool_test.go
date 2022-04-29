@@ -11,8 +11,6 @@ import (
 //协程安全，会有锁的开销
 //生命周期受GC影响，不适合于做连接池等，需要自己管理生命周期的资源的池化
 
-
-
 // 对象的获取流程
 //●尝试从私有对象获取
 //●私有对象不存在，尝试从当前Processor的共享池获取
@@ -24,12 +22,9 @@ import (
 //●如果私有对象存在，放入当前Processor子池的共享池中
 
 
-
-
-
 func TestSyncPool(t *testing.T) {
 	pool := &sync.Pool{
-	New：func() interface{} {
+	New: func() interface{} {
 	fmt.Println("Create a new object.")
 	return 100
 	},
@@ -45,23 +40,17 @@ func TestSyncPool(t *testing.T) {
 
 
 
-
-
-
-//
 //func TestSyncPolInMultiGroutine(t *testing.T) {
 //	pool := &sync.Pool{
-//		New：func() interface{} {
+//		New: func() interface{} {
 //			fmt.Println("Create a new object.")
 //			return 10
 //	},
 //	}
 //
-//
 //	pool.Put(100)
 //	pool.Put(100)
 //	pool.Put(100)
-//
 //
 //	var wg sync.WaitGroup
 //	for i := 0; i < 10; i++ {
