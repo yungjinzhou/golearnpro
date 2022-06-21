@@ -2,6 +2,7 @@ package bbd
 
 import (
 	"testing"
+         . "github.com/smartstreets/goconvey/convey"
 )
 
 
