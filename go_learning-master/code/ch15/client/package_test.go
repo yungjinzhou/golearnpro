@@ -1,7 +1,7 @@
 package client
 
 import (
-	"ch15/series"
+	"golearnpro/go_learning-master/code/ch15/series"
 	"testing"
 )
 

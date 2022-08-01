@@ -18,6 +18,7 @@ func TestArrayTravel(t *testing.T) {
 	}
 	for _, e := range arr3 {
 		t.Log(e)
+		t.Log("===========")
 	}
 }
 
@@ -25,4 +26,5 @@ func TestArraySection(t *testing.T) {
 	arr3 := [...]int{1, 2, 3, 4, 5}
 	arr3_sec := arr3[:]
 	t.Log(arr3_sec)
+	t.Log("-----------")
 }

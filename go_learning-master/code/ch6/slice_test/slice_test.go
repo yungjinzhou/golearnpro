@@ -21,6 +21,7 @@ func TestSliceInit(t *testing.T) {
 
 func TestSliceGrowing(t *testing.T) {
 	s := []int{}
+	t.Log("TestSliceGrowing")
 	for i := 0; i < 10; i++ {
 		s = append(s, i)
 		t.Log(len(s), cap(s))
@@ -30,6 +31,7 @@ func TestSliceGrowing(t *testing.T) {
 func TestSliceShareMemory(t *testing.T) {
 	year := []string{"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep",
 		"Oct", "Nov", "Dec"}
+	t.Log("Year cap", cap(year))
 	Q2 := year[3:6]
 	t.Log(Q2, len(Q2), cap(Q2))
 	summer := year[5:8]
@@ -42,8 +44,8 @@ func TestSliceShareMemory(t *testing.T) {
 func TestSliceComparing(t *testing.T) {
 	a := []int{1, 2, 3, 4}
 	b := []int{1, 2, 3, 4}
-	// if a == b { //切片只能和nil比较
-	// 	t.Log("equal")
-	// }
+	//if a == b { //切片只能和nil比较
+	//	t.Log("equal")
+	//}
 	t.Log(a, b)
 }

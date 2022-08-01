@@ -27,6 +27,6 @@ func (d *Dog) Speak() {
 
 func TestDog(t *testing.T) {
 	dog := new(Dog)
-
+	dog.Speak()
 	dog.SpeakTo("Chao")
 }

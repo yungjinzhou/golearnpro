@@ -19,8 +19,15 @@ func TestCompareArray(t *testing.T) {
 }
 
 func TestBitClear(t *testing.T) {
+	// &^ 按位置零，d &^ e , 0111 &^ 0001，将前面 把后面对应位置的1变成0， 最终是0110
+	t.Log(Readable, Writable, Executable)
+	t.Log(5 &^ 0)
 	a := 7 //0111
-	a = a &^ Readable
-	a = a &^ Executable
+	b := a &^ Readable
+	c := a &^ Executable
+	t.Log(a, b, c)
 	t.Log(a&Readable == Readable, a&Writable == Writable, a&Executable == Executable)
 }
+//0111 &^ 0001
+
+
