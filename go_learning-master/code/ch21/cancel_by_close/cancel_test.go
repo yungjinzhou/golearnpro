@@ -27,6 +27,8 @@ func TestCancel(t *testing.T) {
 	cancelChan := make(chan struct{}, 0)
 	for i := 0; i < 5; i++ {
 		go func(i int, cancelCh chan struct{}) {
+			print(i, "   i")
+			print("\n")
 			for {
 				if isCancelled(cancelCh) {
 					break
@@ -36,6 +38,7 @@ func TestCancel(t *testing.T) {
 			fmt.Println(i, "Cancelled")
 		}(i, cancelChan)
 	}
-	cancel_2(cancelChan)
+	print("ager\n")
+	cancel_1(cancelChan)
 	time.Sleep(time.Second * 1)
 }
