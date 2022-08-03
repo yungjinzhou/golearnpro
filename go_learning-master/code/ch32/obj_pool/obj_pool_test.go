@@ -15,7 +15,7 @@ func TestObjPool(t *testing.T) {
 		if v, err := pool.GetObj(time.Second * 1); err != nil {
 			t.Error(err)
 		} else {
-			fmt.Printf("%T\n", v)
+			fmt.Printf("88------%T\n", v)
 			if err := pool.ReleaseObj(v); err != nil {
 				t.Error(err)
 			}

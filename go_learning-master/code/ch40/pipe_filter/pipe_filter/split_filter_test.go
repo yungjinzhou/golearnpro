@@ -23,7 +23,7 @@ func TestStringSplit(t *testing.T) {
 func TestWrongInput(t *testing.T) {
 	sf := NewSplitFilter(",")
 	_, err := sf.Process(123)
-	if err == nil {
+	if err != nil {
 		t.Fatal("An error is expected.")
 	}
 }

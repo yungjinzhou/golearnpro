@@ -18,6 +18,7 @@ func TestUnsafe(t *testing.T) {
 	i := 10
 	f := *(*float64)(unsafe.Pointer(&i))
 	t.Log(unsafe.Pointer(&i))
+	t.Log(&i)
 	t.Log(f)
 }
 

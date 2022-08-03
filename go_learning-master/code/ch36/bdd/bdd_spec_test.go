@@ -5,7 +5,7 @@ import (
 
 	. "github.com/smartystreets/goconvey/convey"
 )
-
+// behavior driven delelopment 行为驱动开发
 func TestSpec(t *testing.T) {
 
 	// Only pass t into top-level Convey calls

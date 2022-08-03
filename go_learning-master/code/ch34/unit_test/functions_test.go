@@ -32,7 +32,7 @@ func TestFailInCode(t *testing.T) {
 }
 
 func TestSquareWithAssert(t *testing.T) {
-	inputs := [...]int{1, 2, 3}
+	inputs := [...]int{1, 2, 4}
 	expected := [...]int{1, 4, 9}
 	for i := 0; i < len(inputs); i++ {
 		ret := square(inputs[i])
