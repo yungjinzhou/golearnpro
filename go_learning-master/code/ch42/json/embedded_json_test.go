@@ -18,6 +18,8 @@ var jsonStr = `{
 
 func TestEmbeddedJson(t *testing.T) {
 	e := new(Employee)
+	fmt.Println(e, "======")
+	fmt.Println(&e, "------")
 	err := json.Unmarshal([]byte(jsonStr), e)
 	if err != nil {
 		t.Error(err)
