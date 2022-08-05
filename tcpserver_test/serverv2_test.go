@@ -4,9 +4,12 @@ import (
 	"flag"
 	"fmt"
 	"net"
+	"syscall"
 )
+const maxRead = 25
 
-func TestTcpSserverV2() {
+
+func testTcpServerV2() {
 	flag.Parse()
 	if flag.NArg() != 2 {
 		panic("usage: host port")
@@ -20,6 +23,7 @@ func TestTcpSserverV2() {
 
 		}
 }
+
 
 func initServer(hostAndPort string) *net.TCPListener {
 	serverAddr, err := net.ResolveTCPAddr("tcp", hostAndPort)
@@ -35,13 +39,13 @@ func connectionHandler(conn net.Conn) {
 	println("Connection from: ", connFrom)
 	sayHello(conn)
 	for {
-		var ibuf []byte = make([]byte, maxRead+1)
+		ibuf := make([]byte, maxRead+1)
 		length, err := conn.Read(ibuf[0:maxRead])
 		ibuf[maxRead] = 0 // to prevent overflow
 		switch err {
 		case nil:
-			handleMsg(length, err, ibuf)
-		case os.EAGAIN: // try again
+			HandleMsg(length, err, ibuf)
+		case syscall.EAGAIN: // try again
 			continue
 		default:
 			goto DISCONNECT
@@ -56,10 +60,9 @@ DISCONNECT:
 func sayHello(to net.Conn) {
 	obuf := []byte{'L', 'E', 'T', '\'', 'S', ' ', 'G', 'O', '!', '\n'}
 	wrote, err := to.Write(obuf)
+	fmt.Println(wrote)
 	checkError(err, "Writexxxx")
 }
-
-
 
 
 func HandleMsg(length int, err error, msg []byte) {
@@ -70,6 +73,7 @@ func HandleMsg(length int, err error, msg []byte) {
 				break
 			}
 			fmt.Printf("%c", msg[i])
+			fmt.Println(err.Error())
 		}
 	}
 }
@@ -79,6 +83,4 @@ func checkError(error error, info string){
 	if error != nil {
 		panic("ERROR: " + info + " " + error.Error())
 	}
-
 }
-
