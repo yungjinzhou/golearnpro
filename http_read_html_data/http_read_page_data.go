@@ -68,11 +68,11 @@ type User struct {
 
 func main() {
 	// 发起请求查询推特 Goodland 用户的状态
-	response, _ := http.Get("http://twitter.com/users/Googland.xml")
+	resp, _ := http.Get("http://twitter.com/users/Googland.xml")
 	// 初始化 XML 返回值的结构
 	user := User{xml.Name{"", "user"}, Status{""}}
 	// 将 XML 解析为我们的结构
-	xml.Unmarshal(response.Body, &user)
+	xml.Unmarshal(resp.Body, &user)
 	fmt.Printf("status: %s", user.Status.Text)
 }
 
