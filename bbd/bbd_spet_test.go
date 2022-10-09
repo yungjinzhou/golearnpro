@@ -1,4 +1,4 @@
-//package bbd
+package bbd
 //
 //import (
 //	"testing"
@@ -6,12 +6,13 @@
 //)
 //
 //
-////项目网站： https://github.com/smartstreets/goconvey
-//// 安装： go get -u github.com/smartstreets/goconvey/convey
-//// 启动web ui
-//// $GOPATH/bin/goconvey
-//
-//
+
+//项目网站： https://github.com/smartstreets/goconvey
+// 安装： go get -u github.com/smartstreets/goconvey/convey
+// 启动web ui
+// $GOPATH/bin/goconvey
+
+
 //func TestSpec(t *testing.T) {
 //	Convey("Given 2 even numbers", t, func() {
 //		a := 2
