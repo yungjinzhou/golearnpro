@@ -1,3 +1,8 @@
+// 抽象工厂
+/*
+
+ */
+
 package main
 
 import "fmt"
